@@ -9,11 +9,9 @@ import './index.css';
 
 const Root = () => {
   return (
-    <BrowserRouter>
       <Provider store={store}>
-          <Route exact path="/" component={App}/>
+          <App />
       </Provider>
-    </BrowserRouter>
     
   );
 };
