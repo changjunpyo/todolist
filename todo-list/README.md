@@ -1,7 +1,7 @@
 ## Getting Started
 
 ```
-git clone https://github.com/changjunpyo/todolist_real.git
+git clone https://github.com/changjunpyo/todolist.git
 cd todolist_real/todo-list
 npm update && npm start
 ```
