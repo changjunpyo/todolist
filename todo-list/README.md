@@ -28,3 +28,11 @@ By default the API server starts on port 3000, http://localhost:3000.
     "redux-actions": "^2.6.5",
     "styled-components": "^4.2.0"
 ```
+### function
+~~check important mark~~
+~~Delete item~~
+~~Modify title~~
+~~Insert content~~
+~~Modify content~~
+Deadline option
+Alarm
