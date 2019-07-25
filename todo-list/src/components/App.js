@@ -1,17 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import TodosContainer from 'containers/TodosContainer';
 import FormContainer from 'containers/FormContainer';
 import AppTemplate from './AppTemplate';
 
-class App extends Component {
-    render() {
+const App = () =>{ 
         return (
             <AppTemplate
                 form={<FormContainer />}
                 children={<TodosContainer />}
             />
         );
-    }
 }
-
 export default App;

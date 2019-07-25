@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as todoActions from 'store/modules/todo';
 
-class TextInput extends Component {
+class TextInputContainer extends Component {
 
     handleText = (e) => {
         // 인풋 값 변경
@@ -41,7 +41,12 @@ class TextInput extends Component {
         const { edit } = this.props;
         return (
         <div className ="form">
-            <input type="text" value={edit} onChange={handleText} onBlur={() => handleSaved(this.props.id,this.props.content_edit)} onKeyPress={(e) => handleEnter(e,this.props.id,this.props.content_edit)} autoFocus/>
+            <input type="text" 
+                   value={edit} 
+                   onChange={handleText} 
+                   onBlur={() => handleSaved(this.props.id,this.props.content_edit)} 
+                   onKeyPress={(e) => handleEnter(e,this.props.id,this.props.content_edit)} 
+                   autoFocus/>
         </div>
             
         );
@@ -57,4 +62,4 @@ export default connect(
     (dispatch) => ({
         TodoActions: bindActionCreators(todoActions, dispatch)
     })
-)(TextInput);
+)(TextInputContainer);

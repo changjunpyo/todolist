@@ -1,7 +1,7 @@
 import React from 'react';
 import './Todos.css'
 import Icon from 'antd/lib/icon';
-import TextInput from './TextInput';
+import TextInputContainer from '../containers/TextInputContainer';
 const TodoItem = ({id, text,content, zoom, checked, star,editing,content_edit, onToggle, onRemove, onStarToggle, onEditToggle, onZoomToggle,onContentToggle}) => {
     
     if (!editing)
@@ -57,15 +57,15 @@ const TodoItem = ({id, text,content, zoom, checked, star,editing,content_edit, o
                             </div>
                         </div>;
 
-                        else if (zoom && content_edit) return <TextInput id={id} content_edit={content_edit}/>;
-                    })()
+                        else if (zoom && content_edit) return <TextInputContainer id={id} content_edit={content_edit}/>;
+                    })
 
                 }
         </section>    
     );
     if (editing)
         return(
-            <TextInput id ={id} content_edit ={false}/>
+            <TextInputContainer id ={id} content_edit ={false}/>
         );
     
 };
