@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import Todos from 'components/Todos';
+import * as React from 'react';
+import Todos from '../components/Todos';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as todoActions from 'store/modules/todo';
+import {bindActionCreators } from 'redux';
+import * as todoActions from '../store/modules/todo';
 
-class TodosContainer extends Component {
+class TodosContainer extends React.Component<any,any> {
 
     handleToggle = (id) => {
         // 삭제선 켜고 끄기

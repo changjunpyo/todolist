@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as todoActions from 'store/modules/todo';
+import * as todoActions from '../store/modules/todo';
 
-class TextInputContainer extends Component {
+class TextInputContainer extends React.Component<any,any> {
 
     handleText = (e) => {
         // 인풋 값 변경
@@ -55,7 +55,7 @@ class TextInputContainer extends Component {
 
 export default connect(
     // state 를 비구조화 할당 해주었습니다
-    ({ todo }) => ({
+    ( {todo} ) => ({
         // immutable 을 사용하니, 값을 조회 할 때엔느 .get 을 사용해주어야하죠.
         edit: todo.get('edit')
     }),

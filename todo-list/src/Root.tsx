@@ -1,5 +1,4 @@
-import React from 'react';
-import { BrowserRouter, Route} from 'react-router-dom';
+import * as React from 'react';
 import { Provider } from 'react-redux';
 import store from './store';
 

@@ -1,6 +1,6 @@
-import React from 'react';
-import TodosContainer from 'containers/TodosContainer';
-import FormContainer from 'containers/FormContainer';
+import * as React from 'react';
+import TodosContainer from '../containers/TodosContainer';
+import FormContainer from '../containers/FormContainer';
 import AppTemplate from './AppTemplate';
 
 const App = () =>{ 

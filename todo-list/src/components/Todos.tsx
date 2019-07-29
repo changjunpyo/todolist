@@ -1,12 +1,11 @@
-import React from 'react';
+import * as React from 'react';
 import './Todos.css'
 import Icon from 'antd/lib/icon';
 import TextInputContainer from '../containers/TextInputContainer';
 const TodoItem = ({id, text,content, zoom, checked, star,editing,content_edit, onToggle, onRemove, onStarToggle, onEditToggle, onZoomToggle,onContentToggle}) => {
-    
     if (!editing)
         return(
-        <section >
+        <div >
             < div className="todo-item"
                 style={{
                     textDecoration: checked ? 'line-through' : 'none'
@@ -44,24 +43,27 @@ const TodoItem = ({id, text,content, zoom, checked, star,editing,content_edit, o
                     onClick={() => onZoomToggle(id)} >
                     <Icon type="zoom-in" />
                 </div>
-        
             </div >
                 {
                     (() => {
-                        if (zoom && !content_edit) return <div className ="todo-content">
-                            <Icon type="caret-right" theme="filled" />
+                        if (zoom && !content_edit){
+                        return (
+                        <div className="todo-content">
+                            <Icon type="caret-right" theme = "filled" />
                             {content}
                             <div className="edit"
                                 onClick={() => onContentToggle(id, content)}>
                                 <Icon type="plus-circle" theme="filled" />
                             </div>
-                        </div>;
-
-                        else if (zoom && content_edit) return <TextInputContainer id={id} content_edit={content_edit}/>;
+                        </div>);
+                        }
+                        else if (zoom && content_edit) {
+                            return <TextInputContainer id={id} content_edit={content_edit}/>;
+                        }
                     })
 
                 }
-        </section>    
+        </div>    
     );
     if (editing)
         return(
@@ -72,9 +74,10 @@ const TodoItem = ({id, text,content, zoom, checked, star,editing,content_edit, o
 
 const Todos = ({todos, onToggle, onRemove, onStarToggle, onEditToggle,onZoomToggle,onContentToggle}) => {
 
-    const todoItems = todos.map(
+    const starTodoItems = todos.map(
         todo => {
             const { id, checked, text,content, star,editing,zoom,content_edit} = todo.toJS();
+            if (star)
             return (
                 <TodoItem
                     id={id}
@@ -96,9 +99,35 @@ const Todos = ({todos, onToggle, onRemove, onStarToggle, onEditToggle,onZoomTogg
             )
         }
     )
+    const unStarTodoItems = todos.map(
+        todo => {
+            const { id, checked, text, content, star, editing, zoom, content_edit } = todo.toJS();
+            if (!star)
+                return (
+                    <TodoItem
+                        id={id}
+                        checked={checked}
+                        star={star}
+                        editing={editing}
+                        zoom={zoom}
+                        content_edit={content_edit}
+                        text={text}
+                        content={content}
+                        onToggle={onToggle}
+                        onRemove={onRemove}
+                        onStarToggle={onStarToggle}
+                        onEditToggle={onEditToggle}
+                        onZoomToggle={onZoomToggle}
+                        onContentToggle={onContentToggle}
+                        key={id}
+                    />
+                )
+        }
+    )
     return (
         <div>
-                { todoItems }
+                { starTodoItems }
+                { unStarTodoItems}
         </div>
     );
 };

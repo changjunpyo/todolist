@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import Form from 'components/Form';
+import * as React from 'react';
+import Form from '../components/Form';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as todoActions from 'store/modules/todo';
+import {bindActionCreators} from 'redux';
+import * as todoActions from '../store/modules/todo';
 
-class FormContainer extends Component {
+class FormContainer extends React.Component<any, any> {
     handleChange = (e) => {
         // 인풋 값 변경
-        const { TodoActions } = this.props;
+        const { TodoActions }  = this.props;
         TodoActions.changeInput(e.target.value);
     }
 
